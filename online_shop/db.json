@@ -3,33 +3,39 @@
 
     {
       "name": "New Balance 574 Vintage Brights",
-      "image": "NewBalance574",
-      "price": "650"
+      "image": "NewBalance574.jpg",
+      "price": 650,
+      "article": "A1"
     },
     {
       "name": "New Balance Made in UK 920 Chinese New Year",
-      "image": "NewBalance920",
-      "price": "1200"
+      "image": "NewBalance920.jpg",
+      "price": 1200,
+      "article": "A2"
     },
     {
       "name": "New Balance 373 Modern Classics",
-      "image": "NewBalance373",
-      "price": "800"
+      "image": "NewBalance373.jpg",
+      "price": 800,
+      "article": "A3"
     },
     {
       "name": "New Balance Made in UK 670 Chinese New Year",
-      "image": "NewBalance670",
-      "price": "780"
+      "image": "NewBalance670.jpg",
+      "price": 780,
+      "article": "A4"
     },
     {
       "name": "New Balance X-Racer Utility",
-      "image": "NewBalanceXRacer",
-      "price": "1000"
+      "image": "NewBalanceXRacer.jpg",
+      "price": 1000,
+      "article": "A5"
     },
     {
       "name": "New Balance 5740 Think Colorfully",
-      "image": "NewBalance5740",
-      "price": "940"
+      "image": "NewBalance5740.jpg",
+      "price": 940,
+      "article": "A6"
     }
 
   ]

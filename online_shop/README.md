@@ -1,4 +1,4 @@
-# online_shop
+# online_store_sborkaproject
 
 ## Project setup
 ```

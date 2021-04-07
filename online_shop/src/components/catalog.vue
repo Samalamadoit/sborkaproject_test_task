@@ -1,11 +1,17 @@
 <template>
-  <div class="catalog-item">
-    <h1>Catalog</h1>
+  <div class="catalog">
+    <div class="link-to-cart">
+      <router-link :to="{name: 'cart', params: {cart_data: CART}}">
+        <div class="link-to-cart__button">
+          Cart: {{CART.length}}
+        </div>
+      </router-link>
+    </div>
     <catalog-item
-        v-for="product in products"
-        :key="product.name"
-        v-bind:product_data="product"
-        @sendArticle="showChildArticle"
+        v-for="product in PRODUCTS"
+        :key="product.article"
+        :product_data="product"
+        @addToCart="addToCart"
     />
   </div>
 </template>
@@ -13,6 +19,7 @@
 <script>
 
 import CatalogItem from "@/components/catalog-item";
+import {mapActions, mapGetters} from 'vuex'
 
 export default {
   name: "catalog",
@@ -24,52 +31,48 @@ export default {
   props: {},
   data() {
     return {
-      products: [
 
-        {
-          name: "New Balance 574 Vintage Brights",
-          image: "NewBalance574.jpg",
-          price: 650
-        },
-        {
-          name: "New Balance Made in UK 920 Chinese New Year",
-          image: "NewBalance920.jpg",
-          price: 1200
-        },
-        {
-          name: "New Balance 373 Modern Classics",
-          image: "NewBalance373.jpg",
-          price: 800
-        },
-        {
-          name: "New Balance Made in UK 670 Chinese New Year",
-          image: "NewBalance670.jpg",
-          price: 780
-        },
-        {
-          name: "New Balance X-Racer Utility",
-          image: "NewBalanceXRacer.jpg",
-          price: 1000
-        },
-        {
-          name: "New Balance 5740 Think Colorfully",
-          image: "NewBalance5740.jpg",
-          price: 940
-        }
-
-      ]
     }
   },
+  computed: {
+    ...mapGetters([
+        'PRODUCTS',
+        'CART'
+    ])
+  },
   methods: {
-    showChildArticle(data) {
+    ...mapActions([
+        'GET_PRODUCTS',
+        'ADD_TO_CART'
+    ]),
+    addToCart(data) {
 
-      console.log(data);
+      this.ADD_TO_CART(data);
 
     }
+  },
+  mounted() {
+    this.GET_PRODUCTS()
+    .then((response) => {
+      if(response.data) {
+        console.log('Data arrived');
+      }
+    })
   }
 }
 </script>
 
 <style>
+  .link-to-cart {
 
+    position: absolute;
+    top: 30px;
+    right: 60px;
+
+  }
+  .link-to-cart__button {
+    padding: 15px 35px;
+    border: 1px solid #eee;
+    border-bottom: 3px solid #3366CC;
+  }
 </style>

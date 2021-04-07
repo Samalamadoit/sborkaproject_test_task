@@ -1,26 +1,20 @@
 <template>
   <div class="catalog-wrapper">
-    <p>{{title}}</p>
-    <catalog></catalog>
-    <cart></cart>
+<!--    keep alive, что бы оставались данные не только из стейта-->
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
 <script>
-  import catalog from "@/components/catalog";
-  import cart from "@/components/cart";
-
   export default {
 
     name: 'catalog-wrapper',
-    components: {
-      catalog,
-      cart
-    },
     props: {},
     data() {
       return {
-        title: 'Main wrapper'
+
       };
     },
     computed: {},
